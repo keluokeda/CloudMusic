@@ -1,0 +1,113 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "bfa1725a6f7cde575643cb6cddfa0e4c",
+    "entities": [
+      {
+        "tableName": "comment",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`commentId` INTEGER NOT NULL, `sourceId` INTEGER NOT NULL, `sourceType` INTEGER NOT NULL, `username` TEXT NOT NULL, `userId` INTEGER NOT NULL, `userAvatar` TEXT NOT NULL, `content` TEXT, `timeString` TEXT NOT NULL, `likedCount` INTEGER NOT NULL, `ipLocation` TEXT NOT NULL, `owner` INTEGER NOT NULL, `liked` INTEGER NOT NULL, `parentCommentId` INTEGER NOT NULL, `replyCount` INTEGER NOT NULL, PRIMARY KEY(`commentId`, `parentCommentId`))",
+        "fields": [
+          {
+            "fieldPath": "commentId",
+            "columnName": "commentId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sourceId",
+            "columnName": "sourceId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sourceType",
+            "columnName": "sourceType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "username",
+            "columnName": "username",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userAvatar",
+            "columnName": "userAvatar",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "content",
+            "columnName": "content",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "timeString",
+            "columnName": "timeString",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "likedCount",
+            "columnName": "likedCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ipLocation",
+            "columnName": "ipLocation",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "owner",
+            "columnName": "owner",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "liked",
+            "columnName": "liked",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parentCommentId",
+            "columnName": "parentCommentId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "replyCount",
+            "columnName": "replyCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "commentId",
+            "parentCommentId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'bfa1725a6f7cde575643cb6cddfa0e4c')"
+    ]
+  }
+}
